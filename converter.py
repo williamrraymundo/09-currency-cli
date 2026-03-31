@@ -7,3 +7,6 @@ from pathlib import Path
 from urllib.error import URLError
 from urllib.request import urlopen
 
+API = "https://api.frankfurter.app"
+CACHE = Path.home() / ".currency_cli_cache.json"
+CACHE_TTL = 3600
