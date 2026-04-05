@@ -10,3 +10,8 @@ from urllib.request import urlopen
 API = "https://api.frankfurter.app"
 CACHE = Path.home() / ".currency_cli_cache.json"
 CACHE_TTL = 3600
+
+
+def _fetch(path: str) -> dict:
+    with urlopen(f"{API}{path}", timeout=10) as response:
+        return json.load(response)
