@@ -15,3 +15,9 @@ CACHE_TTL = 3600
 def _fetch(path: str) -> dict:
     with urlopen(f"{API}{path}", timeout=10) as response:
         return json.load(response)
+
+
+def get_rate(base: str, target: str) -> float:
+    """Return the exchange rate, using a one-hour on-disk cache."""
+    key = f"{base}->{target}"
+    cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
