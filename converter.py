@@ -21,3 +21,6 @@ def get_rate(base: str, target: str) -> float:
     """Return the exchange rate, using a one-hour on-disk cache."""
     key = f"{base}->{target}"
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
+    entry = cache.get(key)
+    if entry and time.time() - entry["time"] < CACHE_TTL:
+        return entry["rate"]
