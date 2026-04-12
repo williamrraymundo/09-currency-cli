@@ -24,3 +24,11 @@ def get_rate(base: str, target: str) -> float:
     entry = cache.get(key)
     if entry and time.time() - entry["time"] < CACHE_TTL:
         return entry["rate"]
+
+    data = _fetch(f"/latest?from={base}&to={target}")
+    rate = data["rates"][target]
+    cache[key] = {"rate": rate, "time": time.time()}
+    CACHE.write_text(json.dumps(cache))
+    return rate
+
+
