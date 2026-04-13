@@ -32,3 +32,6 @@ def get_rate(base: str, target: str) -> float:
     return rate
 
 
+def list_currencies() -> dict:
+    return _fetch("/currencies")
+
