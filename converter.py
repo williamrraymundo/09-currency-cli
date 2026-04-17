@@ -39,3 +39,7 @@ def list_currencies() -> dict:
 def convert(amount: float, base: str, target: str) -> float:
     if base == target:
         return amount
+    return amount * get_rate(base, target)
+
+
+def build_parser() -> argparse.ArgumentParser:
