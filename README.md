@@ -12,3 +12,10 @@
 ## Tech stack
 
 Python 3.10+, Frankfurter API
+
+## Getting started
+
+```bash
+python converter.py 100 USD BRL
+python converter.py --list
+```
