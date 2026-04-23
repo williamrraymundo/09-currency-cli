@@ -43,3 +43,11 @@ def convert(amount: float, base: str, target: str) -> float:
 
 
 def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Convert between currencies.")
+    parser.add_argument("amount", type=float, nargs="?", help="Amount to convert")
+    parser.add_argument("base", nargs="?", help="Source currency, e.g. USD")
+    parser.add_argument("target", nargs="?", help="Target currency, e.g. BRL")
+    parser.add_argument("--list", action="store_true", help="List supported currencies")
+    return parser
+
+
