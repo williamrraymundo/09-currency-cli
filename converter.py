@@ -51,3 +51,10 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
+def main() -> int:
+    args = build_parser().parse_args()
+    try:
+        if args.list:
+            for code, name in list_currencies().items():
+                print(f"{code}  {name}")
+            return 0
