@@ -58,3 +58,10 @@ def main() -> int:
             for code, name in list_currencies().items():
                 print(f"{code}  {name}")
             return 0
+        if args.amount is None or not args.base or not args.target:
+            print("usage: converter.py AMOUNT BASE TARGET", file=sys.stderr)
+            return 2
+        base, target = args.base.upper(), args.target.upper()
+        result = convert(args.amount, base, target)
+        print(f"{args.amount:,.2f} {base} = {result:,.2f} {target}")
+        return 0
