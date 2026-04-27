@@ -65,3 +65,7 @@ def main() -> int:
         result = convert(args.amount, base, target)
         print(f"{args.amount:,.2f} {base} = {result:,.2f} {target}")
         return 0
+    except (URLError, KeyError) as error:
+        print(f"Could not fetch exchange rates: {error}", file=sys.stderr)
+        return 1
+
