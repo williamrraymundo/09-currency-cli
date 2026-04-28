@@ -19,3 +19,7 @@ Python 3.10+, Frankfurter API
 python converter.py 100 USD BRL
 python converter.py --list
 ```
+
+## License
+
+MIT © William Raymundo
