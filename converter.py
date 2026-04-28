@@ -69,3 +69,6 @@ def main() -> int:
         print(f"Could not fetch exchange rates: {error}", file=sys.stderr)
         return 1
 
+
+if __name__ == "__main__":
+    sys.exit(main())
